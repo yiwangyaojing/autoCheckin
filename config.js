@@ -1,5 +1,5 @@
 //查询今日是否签到成功接口  https://api.juejin.cn/growth_api/v1/get_today_status
-let [JUEJIN_COOKIE] = process.argv.slice(2)
+let [JUEJIN_COOKIE, PUSH_TOKEN] = process.argv.slice(2)
 module.exports = {
   //掘金相关参数
   nuggets: {
@@ -18,6 +18,6 @@ module.exports = {
   //消息推送相关参数 关注pushplus微信公众号可以获得一对一推送的调用参数
   pushPlus: {
     url: `http://www.pushplus.plus/send`, //微信推送URL
-    token: `11ea5fbfe6404e278bf5a7a93523a6e3`, 
+    token: PUSH_TOKEN, 
   }
 }

@@ -15,5 +15,8 @@ jobs:
       with:
         node-version: 12
         cache: 'npm'
-    - name: Use Node.js For Work
-      run: npm ci && node updateCookie.js
+    - name: cookie update alarm
+      env:
+        JUEJIN_COOKIE: ${{ secrets.JUEJIN_COOKIE }}
+        PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      run: npm ci && node updateCookie.js "${PUSH_TOKEN}"
