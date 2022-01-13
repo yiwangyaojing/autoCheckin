@@ -1,0 +1,21 @@
+name: checkin_everyday
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: "0 20 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 12
+        cache: 'npm'
+    - name: Use Node.js For Work
+      env:
+        JUEJIN_COOKIE: ${{ secrets.JUEJIN_COOKIE }}
+      run: npm ci && node checkIn.js "${JUEJIN_COOKIE}"
