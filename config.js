@@ -1,5 +1,8 @@
 //查询今日是否签到成功接口  https://api.juejin.cn/growth_api/v1/get_today_status
 let [JUEJIN_COOKIE, PUSH_TOKEN] = process.argv.slice(2)
+console.log('------------process.argv--------------')
+console.log(process.argv)
+console.log('------------process.argv--------------')
 module.exports = {
   //掘金相关参数
   nuggets: {
